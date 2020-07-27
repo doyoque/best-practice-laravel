@@ -1,19 +1,26 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Book;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Repository\BooksRepository;
+
+use App\Http\Controllers\Book\Repository\BooksRepository;
+use App\Http\Controllers\Request\StoreBookRequest;
 
 class BooksController extends Controller
 {
+    /**
+     * The book repository instance.
+     *
+     * @var BooksRepository
+     */
     protected $books;
 
     public function __construct(BooksRepository $books)
     {
         $this->books = $books;
     }
-
 
     /**
      * Display a listing of the resource.
@@ -42,18 +49,19 @@ class BooksController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBookRequest $request)
     {
-        //
+        $created = $this->books->create($request);
+        return response()->json([$created]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Books  $books
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Books $books)
+    public function show($id)
     {
         //
     }
@@ -61,10 +69,10 @@ class BooksController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Books  $books
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Books $books)
+    public function edit($id)
     {
         //
     }
@@ -73,10 +81,10 @@ class BooksController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Books  $books
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Books $books)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -84,10 +92,10 @@ class BooksController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Books  $books
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Books $books)
+    public function destroy($id)
     {
         //
     }

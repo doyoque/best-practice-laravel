@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Books;
+use App\Models\Books;
 use Faker\Generator as Faker;
 
 $factory->define(Books::class, function (Faker $faker) {
@@ -13,5 +13,5 @@ $factory->define(Books::class, function (Faker $faker) {
 
     /** how to run factory **/
     /** php artisan tinker **/
-    /** factory(\App\Books::class, 100)->create() **/
+    /** factory(\App\Models\Books::class, 100)->create() **/
 });
