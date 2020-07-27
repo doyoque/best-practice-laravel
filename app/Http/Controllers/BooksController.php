@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Books;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Repository\BooksRepository;
 
 class BooksController extends Controller
 {
+    protected $books;
+
+    public function __construct(BooksRepository $books)
+    {
+        $this->books = $books;
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -15,10 +22,8 @@ class BooksController extends Controller
      */
     public function index()
     {
-        $booksRepo = new BooksRepository(new Books);
-        $getBooks = $booksRepo->getBooks();
-
-        return response()->json(['books' => $getBooks]);
+        $books = $this->books->getBooks();
+        return response()->json(['books' => $books]);
     }
 
     /**

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Repository;
 
+use App\Http\Controllers\Contracts\RepositoryInterface;
 use App\Books;
 
-class BooksRepository
+class BooksRepository implements RepositoryInterface
 {
 	public function __construct(Books $books)
 	{
@@ -15,5 +16,25 @@ class BooksRepository
 	{
 		$data = $this->books::getAll();
 		return $data->toArray();
+	}
+
+	public function find($id)
+	{
+
+	}
+
+	public function create($request)
+	{
+
+	}
+
+	public function update($request, $id)
+	{
+
+	}
+
+	public function delete($id)
+	{
+		
 	}
 }
