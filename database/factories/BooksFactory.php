@@ -10,4 +10,8 @@ $factory->define(Books::class, function (Faker $faker) {
         'title' => $faker->sentence(3),
         'isbn' => rand(111111111,999999999)
     ];
+
+    /** how to run factory **/
+    /** php artisan tinker **/
+    /** factory(\App\Books::class, 100)->create() **/
 });
