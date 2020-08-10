@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Events\Book\BookWasCreated;
+use App\Http\Controllers\Event\BookWasCreated;
 use App\BaseModel;
 
 class Books extends BaseModel

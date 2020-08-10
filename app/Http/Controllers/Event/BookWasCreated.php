@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Event;
 
-use App\Event\Event;
+use App\Events\Event;
 use App\Models\Books;
 use Illuminate\Queue\SerializesModels;
 
