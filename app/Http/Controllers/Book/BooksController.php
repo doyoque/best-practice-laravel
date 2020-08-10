@@ -40,7 +40,6 @@ class BooksController extends Controller
      */
     public function create()
     {
-        //
         return view('books.create');
     }
 
@@ -65,6 +64,8 @@ class BooksController extends Controller
     public function show($id)
     {
         //
+        $book = $this->books->find($id);
+        return response()->json(['book' => $book]);
     }
 
     /**

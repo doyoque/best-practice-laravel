@@ -39,7 +39,7 @@ class BooksRepository implements RepositoryInterface
 
 	public function find($id)
 	{
-
+        return Books::find($id);
 	}
 
 	public function update($request, $id)
@@ -49,6 +49,6 @@ class BooksRepository implements RepositoryInterface
 
 	public function delete($id)
 	{
-		
+
 	}
 }
