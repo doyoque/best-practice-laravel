@@ -24,3 +24,4 @@ class BookWasCreated extends Event
 		return [];
 	}
 }
+

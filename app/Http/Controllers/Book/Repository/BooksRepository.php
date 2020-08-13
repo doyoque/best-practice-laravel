@@ -44,7 +44,11 @@ class BooksRepository implements RepositoryInterface
 
 	public function update($request, $id)
 	{
-
+        $param = $this->params($request);
+        $book = Books::find($id);
+        $book->title = $param['title'];
+        $book->isbn = $param['isbn'];
+        $book->save();
 	}
 
 	public function delete($id)

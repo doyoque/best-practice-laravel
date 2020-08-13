@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Book\Repository\BooksRepository;
 use App\Http\Controllers\Request\StoreBookRequest;
+use App\Http\Controllers\Request\UpdateBookRequest;
 
 class BooksController extends Controller
 {
@@ -64,8 +65,6 @@ class BooksController extends Controller
     public function show($id)
     {
         //
-        $book = $this->books->find($id);
-        return response()->json(['book' => $book]);
     }
 
     /**
@@ -76,7 +75,8 @@ class BooksController extends Controller
      */
     public function edit($id)
     {
-        //
+        $book = $this->books->find($id);
+        return view('books.update', compact('book'));
     }
 
     /**
@@ -86,9 +86,13 @@ class BooksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateBookRequest $request, $id)
     {
-        //
+        $this->books->update($request, $id);
+        return response()->json([
+            'code' => 200,
+            'message' => 'update success'
+        ]);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Http\Controllers\Event\BookWasCreated;
+use App\Http\Controllers\Event\BookWasUpdated;
 use App\BaseModel;
 
 class Books extends BaseModel
@@ -18,5 +19,10 @@ class Books extends BaseModel
 		static::created(function ($book) {
 			event(new BookWasCreated($book));
 		});
+
+        //when book was update
+        static::updated(function ($book){
+            event(new BookWasUpdated($book));
+        });
 	}
 }
