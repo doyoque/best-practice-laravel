@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Book;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 use App\Http\Controllers\Book\Repository\BooksRepository;
 use App\Http\Controllers\Request\StoreBookRequest;
@@ -64,7 +63,8 @@ class BooksController extends Controller
      */
     public function show($id)
     {
-        //
+        $book = $this->books->find($id);
+        return response()->json([$book]);
     }
 
     /**
@@ -103,6 +103,6 @@ class BooksController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->books->delete($id);
     }
 }

@@ -53,6 +53,6 @@ class BooksRepository implements RepositoryInterface
 
 	public function delete($id)
 	{
-
+        return Books::destroy($id);
 	}
 }
