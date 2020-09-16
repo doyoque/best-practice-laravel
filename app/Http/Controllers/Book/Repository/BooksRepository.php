@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Book\Repository;
 
 use App\Contracts\RepositoryInterface;
 use App\Models\Books;
-use Illuminate\Http\Request;
 
 class BooksRepository implements RepositoryInterface
 {
